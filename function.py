@@ -1,6 +1,6 @@
-def sayhi():
-    print("hello user")
+def say_hi(name):
+    print("hello " + name)
 
 print("Top")
-sayhi()
+say_hi("Mike")
 print("Bottom")
