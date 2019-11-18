@@ -1,5 +1,9 @@
 from math import *
 
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+print("Hello " + name + "! You are " + age)
+
 character_name: str = "Tom"
 character_age = "50"
 isMale = True
