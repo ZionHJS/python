@@ -44,14 +44,20 @@ var lengthOfLongestSubstring = function (s) {
     let m = '';
     for (n of s) {
         if (m.indexOf(n) == -1) {   //.indexOf()没有找到则返回-1
-            m += n;
+            m += n;   //让m一直增增
             num++;
-            res = res < num ? num : res;
+            res = res < num ? num : res;   //res 总是取最大循环里的num
         } else {
             m += n;
-            m = m.slice(m.indexOf(n) + 1);
-            num = m.length;
+            m = m.slice(m.indexOf(n) + 1);   //slice() 不传参数则返回0
+            num = m.length;   //num这里就是一个变量容器 num在循环构建阶段一直在自增 到了这里 又会随着m.length减少后减少
         }
     }
     return res;
 };
+
+var m = 'asalweasddwasdxd';
+var indexOfFirst = m.indexOf('w');
+console.log(m.slice(m.indexOf('w')+1));
+
+console.log(m.slice(m.indexOf('w', (indexOfFirst+1))));   //wasdxd
