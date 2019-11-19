@@ -61,3 +61,31 @@ var indexOfFirst = m.indexOf('w');
 console.log(m.slice(m.indexOf('w')+1));
 
 console.log(m.slice(m.indexOf('w', (indexOfFirst+1))));   //wasdxd
+
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function(nums1, nums2) {
+    var numAll = [],
+        res = null;
+
+        for(var i = 0; i < nums1.length; i++){
+            var num = 0;
+            if(nums1[num+i]>nums2[0]){
+                nums1.splice(i, 0, nums2[0]);
+                nums2.splice(0,1);
+                num++;
+            }
+        }
+        numAll = nums1.concat(nums2);
+        if(numAll.length % 2 == 0){
+            res = (numAll[numAll.length/2 - 1] + numAll[numAll.length/2])/2;
+        }else{
+            res = numAll[Math.floor(numAll.length/2)];
+        }
+
+        return res;
+};
