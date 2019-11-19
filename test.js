@@ -61,23 +61,23 @@ var lengthOfLongestSubstring = function(s) {
     var tempLength = 1,
         tempLengthArray = [],
         maxLengthArray = [],
-        tempMax = null;
+        tempMin = null;
     
-    for(var i = 0; i < s.length-2; i++){
-        for(var j = i+1; j < s.length-1; j++){
+    for(var i = 0; i < s.length-1; i++){
+        for(var j = i+1; j < s.length; j++){
             if(s[j] === s[i]){
                 tempLength = j - i;
                 tempLengthArray.push(tempLength);
             }
         }
-        tempMax = findMinArray(tempLengthArray);
-        maxLengthArray.push(tempMax);
+        tempMin = findMinArray(tempLengthArray);
+        maxLengthArray.push(tempMin);
     }
     return findMaxArray(maxLengthArray)
 };
 
 function findMaxArray(arr){
-    for(var i = 0; i < arr.length -1; i++){
+    for(var i = 0; i < arr.length; i++){
         if(arr[i] > arr[arr.length-1]){
             arr[arr.length-1] = arr[i];
         }
@@ -85,10 +85,25 @@ function findMaxArray(arr){
     return arr[arr.length-1]
 }
 function findMinArray(arr){
-    for(var i = 1; i < arr.length -1; i++){
+    for(var i = 1; i < arr.length; i++){
         if(arr[i] < arr[0]){
             arr[0] = arr[i];
         }
     }
     return arr[0]
 }
+
+class Me {
+    getClassName(){
+        return Me.name;
+    }
+}
+console.log(Me.name);
+
+const MyClass = class{
+    getClassName(){
+        return this.name;
+    }
+}
+console.log(MyClass.name);
+
