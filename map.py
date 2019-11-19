@@ -27,3 +27,12 @@ for employee in employee_file.readlines():
     print(employee)
 print(employee_file.readlines()[1])
 employee_file.close()
+
+employee_file = open("employees.txt", "a")
+employee_file.write("Toby - Human Resources")
+for employee in employee_file.readlines():
+    print(employee)
+print(employee_file.readlines()[1])
+employee_file.close()
+
+# writing and appending information into files
